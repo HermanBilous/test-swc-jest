@@ -1,0 +1,30 @@
+{
+    "transform": {
+        "^.+\\.tsx?$": [
+            "@swc/jest",
+            {
+                "jsc": {
+                    "transform": {
+                        "react": {
+                            "runtime": "automatic"
+                        }
+                    },
+                    "experimental": {
+                        "plugins": [
+                            ["swc-plugin-import-meta-env", {}]
+                        ]
+                    }
+                },
+                "module": {
+                    "type": "commonjs"
+                }
+            }
+        ]
+    },
+    "testRegex": "(\\.|/)(test)\\.(ts)$",
+    "moduleFileExtensions": ["js", "ts"],
+    "moduleDirectories": ["src", "node_modules"],
+    "moduleNameMapper": {
+        "@/(.*)": "<rootDir>/src/$1"
+    }
+}
